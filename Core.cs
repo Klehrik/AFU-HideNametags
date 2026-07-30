@@ -1,41 +1,47 @@
-﻿using UnityEngine;
-using UnityEngine.InputSystem;
-using MelonLoader;
+﻿using MelonLoader;
 using HarmonyLib;
+using UnityEngine;
 using Il2CppHUD;
-using Il2CppQuantum;
 using Il2CppView_Access;
+using AFUtils;
 
-[assembly: MelonInfo(typeof(HideNametags.Core), "HideNametags", "1.0.1", "Klehrik", null)]
+[assembly: MelonInfo(typeof(HideNametags.Core), "HideNametags", "1.0.2", "Klehrik", null)]
 [assembly: MelonGame("Videocult", "Airframe")]
+[assembly: MelonAdditionalDependencies("AFUtils")]
 
 namespace HideNametags;
 
 public class Core : MelonMod
 {
-    public static bool enabled;
+    public static bool enabled = false;
     public static WorldSpaceLabels WSLabels;
     public static MelonLogger.Instance Logger => Melon<Core>.Logger;
 
-    public Core()
+    public override void OnInitializeMelon()
     {
-        enabled = false;
+        var option = new ActionMenu.Option(
+            () =>
+            {
+                enabled = !enabled;
+
+                var transform = GameObject.Find("Camera_View 0")?.transform.Find("HUDCanvas(Clone)")?.Find("OtherPlayersTracker");
+                if (transform != null)
+                {
+                    transform.gameObject.SetActive(!enabled);
+                }
+            }
+        );
+
+        ActionMenu.RegisterForCollection(
+            () =>
+            {
+                ActionMenu.AddOption(option, enabled ? "show nametags" : "hide nametags");
+            }
+        );
     }
 
     public override void OnUpdate()
     {
-        if (Keyboard.current.uKey.wasPressedThisFrame)
-        {
-            enabled = !enabled;
-            Logger.Msg("Hidden: " + enabled.ToString());
-
-            var transform = GameObject.Find("Camera_View 0")?.transform.Find("HUDCanvas(Clone)")?.Find("OtherPlayersTracker");
-            if (transform != null)
-            {
-                transform.gameObject.SetActive(!enabled);
-            }
-        }
-
         if (enabled)
         {
             if (WSLabels != null)
