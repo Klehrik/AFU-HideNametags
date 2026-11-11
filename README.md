@@ -2,4 +2,4 @@
 
 Adds an option to hide player nametags and direction indicators.
 
-Requires [AFUtils](https://github.com/Klehrik/AFUtils).
+Requires [Crowbar](https://github.com/Klehrik/AFU-Crowbar).

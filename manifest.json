@@ -1,0 +1,9 @@
+﻿{
+    "name": "HideNametags",
+    "version_number": "1.0.2",
+    "description": "Adds an option to hide player nametags and direction indicators.",
+    "website_url": "https://github.com/Klehrik/AFU-HideNametags",
+    "dependencies": [
+        "Klehrik-Crowbar-1.0.3"
+    ]
+}

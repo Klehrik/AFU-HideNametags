@@ -21,6 +21,9 @@
 		<Reference Include="Assembly-CSharp">
 			<HintPath>$(GamePath)/MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
 		</Reference>
+		<Reference Include="Crowbar">
+		  <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Airframe Ultra\Mods\Crowbar.dll</HintPath>
+		</Reference>
 		<Reference Include="Il2CppAfuAnalytics">
 			<HintPath>$(GamePath)/MelonLoader\Il2CppAssemblies\Il2CppAfuAnalytics.dll</HintPath>
 		</Reference>
@@ -589,6 +592,7 @@
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
 		<SignAssembly>False</SignAssembly>
+		<Authors>Klehrik</Authors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -597,6 +601,6 @@
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)/Mods&quot;" />
+		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)/Mods&quot;&#xD;&#xA;&#xD;&#xA;MKDIR &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/README.md&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/manifest.json&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/icon.png&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;&#xD;&#xA;powershell -NoProfile -ExecutionPolicy Bypass -Command Compress-Archive -Path '$(GamePath)/Mods/$(AssemblyName)/*' -DestinationPath '$(GamePath)/Mods/$(AssemblyName)/$(AssemblyName).zip' -Force&quot;" />
 	</Target>
 </Project>

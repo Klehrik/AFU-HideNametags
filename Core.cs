@@ -3,11 +3,11 @@ using HarmonyLib;
 using UnityEngine;
 using Il2CppHUD;
 using Il2CppView_Access;
-using AFUtils;
+using Crowbar;
 
 [assembly: MelonInfo(typeof(HideNametags.Core), "HideNametags", "1.0.2", "Klehrik", null)]
 [assembly: MelonGame("Videocult", "Airframe")]
-[assembly: MelonAdditionalDependencies("AFUtils")]
+[assembly: MelonAdditionalDependencies("Crowbar")]
 
 namespace HideNametags;
 
