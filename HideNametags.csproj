@@ -7,7 +7,7 @@
 		<LangVersion>default</LangVersion>
 		<IsPackable>false</IsPackable>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
+		<FileVersion>1.0.2</FileVersion>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<AssemblyName>HideNametags</AssemblyName>
 		<LangVersion>latest</LangVersion>
@@ -588,6 +588,7 @@
 	<PropertyGroup>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+		<SignAssembly>False</SignAssembly>
 	</PropertyGroup>
 
 	<ItemGroup>
