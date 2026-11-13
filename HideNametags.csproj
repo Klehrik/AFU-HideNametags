@@ -7,7 +7,7 @@
 		<LangVersion>default</LangVersion>
 		<IsPackable>false</IsPackable>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.2</FileVersion>
+		<FileVersion>1.0.3</FileVersion>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<AssemblyName>HideNametags</AssemblyName>
 		<LangVersion>latest</LangVersion>
@@ -601,6 +601,6 @@
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)/Mods&quot;&#xD;&#xA;&#xD;&#xA;MKDIR &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/README.md&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/manifest.json&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/icon.png&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;&#xD;&#xA;powershell -NoProfile -ExecutionPolicy Bypass -Command Compress-Archive -Path '$(GamePath)/Mods/$(AssemblyName)/*' -DestinationPath '$(GamePath)/Mods/$(AssemblyName)/$(AssemblyName).zip' -Force&quot;" />
+		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)/Mods&quot;&#xD;&#xA;&#xD;&#xA;MKDIR &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/README.md&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/manifest.json&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/CHANGELOG.md&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;COPY &quot;$(ProjectDir)/icon.png&quot; &quot;$(GamePath)/Mods/$(AssemblyName)&quot;&#xD;&#xA;&#xD;&#xA;powershell -NoProfile -ExecutionPolicy Bypass -Command Compress-Archive -Path '$(GamePath)/Mods/$(AssemblyName)/*' -DestinationPath '$(GamePath)/Mods/$(AssemblyName)/$(AssemblyName).zip' -Force&quot;" />
 	</Target>
 </Project>
